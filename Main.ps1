@@ -298,7 +298,7 @@ function Update-RestorePointList {
     $points = @(Get-RestorePointList)
     if ($points.Count -eq 0) {
         $none = New-Object System.Windows.Controls.TextBlock
-        $none.Text = "No restore points found. If you expected some, System Protection may be turned off - use the Restore Point shortcut to check."
+        $none.Text = "No restore points found."
         $none.TextWrapping = "Wrap"
         $none.Foreground = $window.Resources["SubText"]
         $RestorePointList.Children.Add($none) | Out-Null
@@ -311,7 +311,7 @@ function Update-RestorePointList {
     }
     if ($points.Count -gt 10) {
         $more = New-Object System.Windows.Controls.TextBlock
-        $more.Text = "Showing the 10 most recent of $($points.Count) restore points."
+        $more.Text = "Showing the 10 most recent $($points.Count) restore points."
         $more.Foreground = $window.Resources["SubText"]
         $more.FontSize = 12
         $more.Margin = "0,6,0,0"
@@ -327,7 +327,7 @@ function Invoke-RestorePointCreation {
     $RestorePointStatus.Text = $result.Message
     Update-RestorePointList
     if ($result.LimitHit) {
-        Show-AppMessage -Message "Windows only allows one restore point every 24 hours, and one already exists. No new restore point was created."
+        Show-AppMessage -Message "Windows only allows you to create one restore point every 24 hours. No new restore point was created."
     }
     $BtnRestorePoint.IsEnabled = $true
 }
