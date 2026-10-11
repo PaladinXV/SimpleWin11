@@ -2,6 +2,7 @@
 
 [![Last Commit](https://img.shields.io/github/last-commit/PaladinXV/Simple-Windows-11-Setup-Debloat-Tool)](https://github.com/PaladinXV/Simple-Windows-11-Setup-Debloat-Tool/commits/main)
 [![License](https://img.shields.io/github/license/PaladinXV/Simple-Windows-11-Setup-Debloat-Tool)](LICENSE)
+[![Documentation](https://img.shields.io/badge/Documentation-Wiki-blue?style=for-the-badge&logo=github)](https://github.com/PaladinXV/SimpleWin11/wiki)
 
 
 A simple, open-source Windows 11 setup tool created with PowerShell.
@@ -32,3 +33,5 @@ irm https://raw.githubusercontent.com/PaladinXV/Simple-Windows-11-Setup-Debloat-
 - Almost all changes can be reverted
 - "Deep Clean" mode is an option for users that want to remove apps from the PC entirely, rather than the current user. This means Windows Update won't randomly reinstall an app. The catch is that it will take much longer to uninstall/reinstall apps. 
 
+## Documentation
+Read here - https://github.com/PaladinXV/SimpleWin11/wiki/Documentation
