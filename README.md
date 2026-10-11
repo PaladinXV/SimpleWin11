@@ -2,7 +2,7 @@
 
 [![Last Commit](https://img.shields.io/github/last-commit/PaladinXV/Simple-Windows-11-Setup-Debloat-Tool)](https://github.com/PaladinXV/Simple-Windows-11-Setup-Debloat-Tool/commits/main)
 [![License](https://img.shields.io/github/license/PaladinXV/Simple-Windows-11-Setup-Debloat-Tool)](LICENSE)
-[![Documentation](https://img.shields.io/badge/Documentation-Wiki-blue?style=for-the-badge&logo=github)](https://github.com/PaladinXV/SimpleWin11/wiki)
+[![Documentation](https://img.shields.io/badge/Documentation-Wiki-blue?style=flat&logo=github)](https://github.com/PaladinXV/SimpleWin11/wiki)
 
 
 A simple, open-source Windows 11 setup tool created with PowerShell.
