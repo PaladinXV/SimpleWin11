@@ -15,7 +15,7 @@ A simple, open-source Windows 11 setup tool created with PowerShell.
 - Shortcuts to various Windows control panel/tools
 - Use a pre-configured preset or create your own
 
-![Simple Windows 11 Setup](https://raw.githubusercontent.com/PaladinXV/SimpleWin11/main/Screenshot/main-window.png)
+![Simple Windows 11 Setup](https://github.com/PaladinXV/SimpleWin11/blob/main/Screenshot/main-window.png)
 
 ## How to use
 
