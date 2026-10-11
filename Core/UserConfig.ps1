@@ -17,7 +17,7 @@ function Export-UserConfig {
         if ($e.Combo.SelectedIndex -ge 0) { $dropdowns[[string]$e.Item.Name] = [string]$e.Item.Options[$e.Combo.SelectedIndex].Label }
     }
     $config = [ordered]@{
-        Tool          = "Simple Windows Setup/Debloat Tool"
+        Tool          = "Simple Windows 11 Setup Tool"
         FormatVersion = 1
         Saved         = (Get-Date).ToString("yyyy-MM-dd HH:mm")
         Configuration = [ordered]@{ Switches = $switches; Dropdowns = $dropdowns }

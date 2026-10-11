@@ -280,7 +280,7 @@
                     <StackPanel Margin="18,18,18,18">
                         <Image x:Name="SidebarLogo" Width="164" Stretch="Uniform" HorizontalAlignment="Left" Margin="0,8,0,8" RenderOptions.BitmapScalingMode="HighQuality" Visibility="Collapsed"/>
                         <StackPanel x:Name="SidebarTitleText">
-                            <TextBlock Text="Simple Windows Setup/Debloat Tool" Foreground="{StaticResource Text}" FontSize="16" FontWeight="Bold" TextWrapping="Wrap"/>
+                            <TextBlock Text="Simple Windows 11 Setup Tool" Foreground="{StaticResource Text}" FontSize="16" FontWeight="Bold" TextWrapping="Wrap"/>
                             <TextBlock Text="By PaladinXV" Foreground="{StaticResource SubText}" FontSize="12" Margin="0,2,0,0"/>
                         </StackPanel>
                     </StackPanel>
@@ -362,7 +362,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0" Margin="0,0,0,10">
-                            <TextBlock Text="Simple Windows Setup/Debloat Tool" Style="{StaticResource PageTitle}" FontSize="22" Margin="0"/>
+                            <TextBlock Text="Simple Windows 11 Setup Tool" Style="{StaticResource PageTitle}" FontSize="22" Margin="0"/>
                             <TextBlock Text="By PaladinXV" Foreground="{StaticResource SubText}" Margin="0,2,0,0"/>
                         </StackPanel>
                         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">

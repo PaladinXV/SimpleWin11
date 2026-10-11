@@ -9,7 +9,7 @@ function Limit-RunLog {
     try {
         $lines = @(Get-Content -LiteralPath $RunLogFile -Encoding UTF8 -ErrorAction Stop)
         $starts = @(for ($n = 2; $n -lt $lines.Count; $n++) {
-            if ($lines[$n] -like " Simple Windows Setup/Debloat Tool   |*" -and $lines[$n - 1] -like "=====*") { $n - 2 }
+            if ($lines[$n] -like " Simple Windows 11 Setup Tool   |*" -and $lines[$n - 1] -like "=====*") { $n - 2 }
         })
         if ($starts.Count -ge $KeepRuns) {
             $from = $starts[$starts.Count - ($KeepRuns - 1)]
@@ -32,7 +32,7 @@ function Write-RunLog {
             $script:RunLogStats = @{ OK = 0; FAILED = 0; SKIPPED = 0; Failures = New-Object System.Collections.Generic.List[string] }
             $lines.Add("")
             $lines.Add($rule)
-            $lines.Add(" Simple Windows Setup/Debloat Tool   |   " + $script:RunLogStart.ToString("dddd d MMMM yyyy, HH:mm:ss"))
+            $lines.Add(" Simple Windows 11 Setup Tool   |   " + $script:RunLogStart.ToString("dddd d MMMM yyyy, HH:mm:ss"))
             if ($script:RunLogLabel) { $lines.Add(" Page: $($script:RunLogLabel)") }
             $lines.Add($rule)
             $lines.Add((" {0,-8}  {1,-8} {2,-9} {3,-44} {4}" -f "TIME", "STATUS", "ACTION", "ITEM", "DETAILS"))
