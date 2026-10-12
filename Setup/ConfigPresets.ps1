@@ -69,8 +69,6 @@ $AggressiveExtras = @(
     'Disable "Storage Sense"'
     'Disable "Autoplay"'
     'Disable "Automatic Sample Submission"'
-    'Disable "Memory Integrity (Core Isolation)"'
-    'Disable "Virtualization-based Security"'
     'Disable "Delivery Optimization"'
     @{ Name = 'Delay Feature Updates'; Option = '90 days' }
     @{ Name = 'Delay Security Updates'; Option = '4 days' }
