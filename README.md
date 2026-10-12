@@ -18,10 +18,10 @@ A simple, open-source Windows 11 setup tool created with PowerShell.
 
 ![Simple Windows 11 Setup](https://github.com/PaladinXV/SimpleWin11/blob/main/Screenshot/main-window.png)
 
+## 🚀 How to use
+
 [!WARNING]
 Use at your own risk! 
-
-## 🚀 How to use
 
 Copy the link below and paste it into PowerShell.
 
