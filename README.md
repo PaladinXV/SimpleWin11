@@ -20,8 +20,8 @@ A simple, open-source Windows 11 setup tool created with PowerShell.
 
 ## 🚀 How to use
 
-[!WARNING]
-Use at your own risk! 
+>[!WARNING]
+>Use at your own risk! 
 
 Copy the link below and paste it into PowerShell.
 
