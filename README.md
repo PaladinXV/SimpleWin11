@@ -10,6 +10,8 @@ A simple, open-source Windows 11 setup tool created with PowerShell.
 ## 🛠️ Features
 
 - Quick download and no installation required
+- App/Tweak detection
+- Zoom feature for all displays/scaling
 - Remove unwanted Windows apps 
 - Configure Windows settings
 - Install various user apps via Winget or Chocolatey
