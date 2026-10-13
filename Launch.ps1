@@ -94,7 +94,7 @@ $SwsBranch = 'main'
         $dest = Join-Path $temp 'SimpleWindowsSetup'
         $uri  = "https://github.com/$SwsRepo/archive/refs/heads/$SwsBranch.zip"
 
-        $text1 = 'Downloading latest version...'
+        $text1 = 'Downloading...'
         Show-Status $text1 'run' $frames[0]
         try {
             Get-FileWithSpinner $uri $zip $text1
@@ -106,7 +106,7 @@ $SwsBranch = 'main'
         Show-Status $text1 'ok'
         Write-Host ""
 
-        Invoke-Step 'Extracting files...' {
+        Invoke-Step 'Extracting...' {
             if (Test-Path -LiteralPath $dest) { Remove-Item -LiteralPath $dest -Recurse -Force }
             Expand-Archive -LiteralPath $zip -DestinationPath $dest -Force
             Remove-Item -LiteralPath $zip -Force
