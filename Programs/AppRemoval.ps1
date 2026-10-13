@@ -162,10 +162,10 @@ $AppRemovals = $AppRemovals | Sort-Object { $_.Name }
 
 $AppPresets = [ordered]@{
     'Recommended' = @(
-        'Camera', 'Clock', 'Copilot', 'Copilot - Microsoft 365', 'Dev Home', 'Family', 'Feedback Hub',
+        'Copilot', 'Copilot - Microsoft 365', 'Dev Home', 'Family', 'Feedback Hub',
         'Microsoft Bing', 'Microsoft Clipchamp', 'Microsoft News', 'Microsoft Teams',
         'Microsoft To Do', 'OneDrive', 'Outlook', 'Power Automate', 'Quick Assist',
-        'Solitaire Collection', 'Sticky Notes', 'Voice Recorder', 'Weather'
+        'Solitaire Collection', 'Sticky Notes', 'Weather'
     )
     'Aggressive' = @(
         'Camera', 'Clock', 'Copilot', 'Copilot - Microsoft 365', 'Dev Home', 'Family', 'Feedback Hub',
