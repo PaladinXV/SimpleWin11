@@ -4,32 +4,140 @@ $SwsBranch = 'main'
 & {
     $ErrorActionPreference = 'Stop'
     $ProgressPreference = 'SilentlyContinue'
+    $global:ProgressPreference = 'SilentlyContinue'
+
+    # Block/box characters built from code points so the script stays encoding-safe when piped into iex
+    $tick  = '--'
+    $cross = [string][char]0x2717
+    $frames = @(0x280B,0x2819,0x2839,0x2838,0x283C,0x2834,0x2826,0x2827,0x2807,0x280F) | ForEach-Object { [string][char]$_ }
+
+    function Show-Banner {
+        try { Clear-Host } catch { }
+        $h = [string][char]0x2550; $v = [string][char]0x2551
+        $tl = [string][char]0x2554; $tr = [string][char]0x2557
+        $bl = [string][char]0x255A; $br = [string][char]0x255D
+        $w = 50
+        $title = 'Simple Windows 11 Setup Tool'
+        $sub   = 'By PaladinXV'
+        $padT = [int](($w - $title.Length) / 2)
+        $padS = [int](($w - $sub.Length) / 2)
+        Write-Host ""
+        Write-Host ("   " + $tl + ($h * $w) + $tr) -ForegroundColor DarkGray
+        Write-Host ("   " + $v + (' ' * $w) + $v) -ForegroundColor DarkGray
+        Write-Host ("   " + $v) -NoNewline -ForegroundColor DarkGray
+        Write-Host ((' ' * $padT) + $title + (' ' * ($w - $padT - $title.Length))) -NoNewline -ForegroundColor Gray
+        Write-Host $v -ForegroundColor DarkGray
+        Write-Host ("   " + $v) -NoNewline -ForegroundColor DarkGray
+        Write-Host ((' ' * $padS) + $sub + (' ' * ($w - $padS - $sub.Length))) -NoNewline -ForegroundColor DarkGray
+        Write-Host $v -ForegroundColor DarkGray
+        Write-Host ("   " + $v + (' ' * $w) + $v) -ForegroundColor DarkGray
+        Write-Host ("   " + $bl + ($h * $w) + $br) -ForegroundColor DarkGray
+        Write-Host ("   github.com/$SwsRepo") -ForegroundColor DarkGray
+        Write-Host ""
+    }
+
+    function Show-Status([string]$text, [string]$state = 'run', [string]$frame = '') {
+        if ($state -eq 'ok')        { $icon = $tick;  $color = 'Gray' }
+        elseif ($state -eq 'fail')  { $icon = $cross; $color = 'Red' }
+        else                        { $icon = $frame; $color = 'Gray' }
+        $line = "   $($icon.PadRight(2)) $($text.PadRight(30))"
+        try {
+            [Console]::CursorVisible = $false
+            Write-Host "`r$line" -NoNewline -ForegroundColor $color
+        } catch { Write-Host $line -ForegroundColor $color }
+    }
+
+    function Invoke-Step([string]$text, [scriptblock]$work) {
+        Show-Status $text 'run' $frames[0]
+        try {
+            $null = & $work
+        } catch {
+            Show-Status $text 'fail'
+            Write-Host ""
+            throw
+        }
+        Show-Status $text 'ok'
+        Write-Host ""
+    }
+
+    function Get-FileWithSpinner([string]$uri, [string]$path, [string]$text) {
+        $req = [Net.HttpWebRequest]::Create($uri)
+        $req.UserAgent = 'SimpleWindowsTool'
+        $resp = $req.GetResponse()
+        $in = $resp.GetResponseStream()
+        $out = [IO.File]::Create($path)
+        try {
+            $buf = New-Object byte[] 65536
+            $i = 0
+            $watch = [Diagnostics.Stopwatch]::StartNew()
+            while (($n = $in.Read($buf, 0, $buf.Length)) -gt 0) {
+                $out.Write($buf, 0, $n)
+                if ($watch.ElapsedMilliseconds -ge 70) {
+                    $watch.Restart()
+                    Show-Status $text 'run' $frames[$i % $frames.Count]
+                    $i++
+                }
+            }
+        } finally {
+            $out.Dispose(); $in.Dispose(); $resp.Close()
+        }
+    }
+
     try {
         if ($SwsRepo -like '*<*') { throw "This launcher hasn't been set up yet: set `$SwsRepo at the top of Launch.ps1 to the GitHub repository." }
         [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
 
+        Show-Banner
+
         $temp = [IO.Path]::GetTempPath()
         $zip  = Join-Path $temp 'SimpleWindowsSetup.zip'
         $dest = Join-Path $temp 'SimpleWindowsSetup'
+        $uri  = "https://github.com/$SwsRepo/archive/refs/heads/$SwsBranch.zip"
 
-        Write-Host "Downloading Simple Windows Tool..." -ForegroundColor Cyan
-        Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/$SwsRepo/archive/refs/heads/$SwsBranch.zip" -OutFile $zip
+        $text1 = 'Downloading latest version...'
+        Show-Status $text1 'run' $frames[0]
+        try {
+            Get-FileWithSpinner $uri $zip $text1
+        } catch {
+            Show-Status $text1 'fail'
+            Write-Host ""
+            throw
+        }
+        Show-Status $text1 'ok'
+        Write-Host ""
 
-        if (Test-Path -LiteralPath $dest) { Remove-Item -LiteralPath $dest -Recurse -Force }
-        Expand-Archive -LiteralPath $zip -DestinationPath $dest -Force
-        Remove-Item -LiteralPath $zip -Force
+        Invoke-Step 'Extracting files...' {
+            if (Test-Path -LiteralPath $dest) { Remove-Item -LiteralPath $dest -Recurse -Force }
+            Expand-Archive -LiteralPath $zip -DestinationPath $dest -Force
+            Remove-Item -LiteralPath $zip -Force
+        }
 
-        $main = Get-ChildItem -LiteralPath $dest -Recurse -Filter 'Main.ps1' | Select-Object -First 1
-        if (-not $main) { throw "Main.ps1 was not found in the download." }
-        Get-ChildItem -LiteralPath $dest -Recurse -File | Unblock-File
+        $script:main = $null
+        Invoke-Step 'Preparing...' {
+            $script:main = Get-ChildItem -LiteralPath $dest -Recurse -Filter 'Main.ps1' | Select-Object -First 1
+            if (-not $script:main) { throw "Main.ps1 was not found in the download." }
+            Get-ChildItem -LiteralPath $dest -Recurse -File | Unblock-File
+        }
+        $main = $script:main
 
-        Write-Host "Starting..." -ForegroundColor Cyan
-        $windowsPowerShell = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
-        Start-Process -FilePath $windowsPowerShell -WindowStyle Hidden -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$($main.FullName)`""
+        Invoke-Step 'Launching...' {
+            $windowsPowerShell = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+            $script:proc = Start-Process -FilePath $windowsPowerShell -WindowStyle Hidden -PassThru -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File `"$($main.FullName)`""
+            Start-Sleep -Milliseconds 400
+        }
+
+        Write-Host ""
+        Write-Host "   -- App launched" -ForegroundColor DarkGray
+
+        # Keep this window open for as long as the tool is running
+        if ($script:proc) { try { $script:proc | Wait-Process } catch { } }
+
     } catch {
         Write-Host ""
-        Write-Host "  Simple Windows Tool could not be started" -ForegroundColor Red
-        Write-Host "  $($_.Exception.Message)" -ForegroundColor Yellow
+        Write-Host "   $cross Simple Windows Tool could not be started" -ForegroundColor Red
+        Write-Host "     $($_.Exception.Message)" -ForegroundColor Yellow
         Write-Host ""
+    } finally {
+        try { [Console]::CursorVisible = $true } catch { }
     }
 }
