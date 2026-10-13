@@ -132,6 +132,22 @@ $SwsBranch = 'main'
         # Keep this window open for as long as the tool is running
         if ($script:proc) { try { $script:proc | Wait-Process } catch { } }
 
+        # Main.ps1 relaunches itself elevated and exits, so also wait for that elevated copy
+        $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+        $mainPath = $main.FullName
+        $deadline = (Get-Date).AddSeconds($(if ($isAdmin) { 10 } else { 90 }))
+        $found = $false
+        while ($true) {
+            $running = $false
+            try {
+                $running = [bool](Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" -ErrorAction Stop |
+                    Where-Object { $_.CommandLine -and $_.CommandLine.Contains($mainPath) -and $_.CommandLine.Contains('-NoConhostRelaunch') })
+            } catch { }
+            if ($running) { $found = $true }
+            elseif ($found -or (Get-Date) -gt $deadline) { break }
+            Start-Sleep -Seconds 1
+        }
+
     } catch {
         Write-Host ""
         Write-Host "   $cross Simple Windows Tool could not be started" -ForegroundColor Red
