@@ -132,19 +132,20 @@ $SwsBranch = 'main'
         # Keep this window open for as long as the tool is running
         if ($script:proc) { try { $script:proc | Wait-Process } catch { } }
 
-        # Main.ps1 relaunches itself elevated and exits, so also wait for that elevated copy
+        # Main.ps1 relaunches itself elevated and exits, so watch for that elevated copy.
+        # If it can't be detected, keep this window open instead of closing it.
         $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
-        $mainPath = $main.FullName
-        $deadline = (Get-Date).AddSeconds($(if ($isAdmin) { 10 } else { 90 }))
+        $deadline = (Get-Date).AddSeconds($(if ($isAdmin) { 15 } else { 90 }))
         $found = $false
         while ($true) {
             $running = $false
             try {
                 $running = [bool](Get-CimInstance Win32_Process -Filter "Name='powershell.exe'" -ErrorAction Stop |
-                    Where-Object { $_.CommandLine -and $_.CommandLine.Contains($mainPath) -and $_.CommandLine.Contains('-NoConhostRelaunch') })
+                    Where-Object { $_.CommandLine -like '*Main.ps1*' -and $_.CommandLine -like '*NoConhostRelaunch*' })
             } catch { }
             if ($running) { $found = $true }
-            elseif ($found -or (Get-Date) -gt $deadline) { break }
+            elseif ($found) { break }
+            elseif ((Get-Date) -gt $deadline) { while ($true) { Start-Sleep -Seconds 3600 } }
             Start-Sleep -Seconds 1
         }
 
