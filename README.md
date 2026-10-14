@@ -38,4 +38,4 @@ irm https://raw.githubusercontent.com/PaladinXV/Simple-Windows-11-Setup-Debloat-
 - Almost all changes can be reverted 
 
 ## 📄 Documentation
-Read here - https://github.com/PaladinXV/SimpleWin11/wiki/Documentation
+Read here - https://github.com/PaladinXV/SimpleWin11/wiki
