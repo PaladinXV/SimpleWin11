@@ -126,9 +126,6 @@ $SwsBranch = 'main'
             Start-Sleep -Milliseconds 400
         }
 
-        Write-Host ""
-        Write-Host "   -- App launched" -ForegroundColor DarkGray
-
         # Keep this window open for as long as the tool is running
         if ($script:proc) { try { $script:proc | Wait-Process } catch { } }
 

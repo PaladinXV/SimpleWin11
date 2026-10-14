@@ -35,8 +35,7 @@ irm https://raw.githubusercontent.com/PaladinXV/Simple-Windows-11-Setup-Debloat-
 
 - Best to use on a fresh install of Windows 11
 - Recommended to create a System Restore point
-- Almost all changes can be reverted
-- "Deep Clean" mode will uninstall from the entire PC, not just the current user. This means Windows won't randomly install an app after an update. The down side is that it takes longer to uninstall/reinstall apps.  
+- Almost all changes can be reverted 
 
 ## 📄 Documentation
 Read here - https://github.com/PaladinXV/SimpleWin11/wiki/Documentation
