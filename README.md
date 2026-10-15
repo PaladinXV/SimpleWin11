@@ -5,37 +5,38 @@
 [![Documentation](https://img.shields.io/badge/Documentation-Wiki-blue?style=flat&logo=github)](https://github.com/PaladinXV/SimpleWin11/wiki)
 
 
-A simple, open-source Windows 11 setup tool created with PowerShell.
+A simple, open-source Windows 11 Setup Tool created with PowerShell.
 
 ## 🛠️ Features
 
-- Quick download and no installation required
-- App/Tweak detection
-- Zoom feature for all displays/scaling
-- Remove unwanted Windows apps 
-- Configure Windows settings
-- Install various user apps via Winget or Chocolatey
-- Shortcuts to various Windows control panel/tools
-- Use a pre-configured preset or create your own
+- Download/Launch the tool with a single command. No installation required
+- Uninstall/Reinstall Windows Apps
+- Configure various Windows Settings
+- Install user apps via Winget/Chocolatey
+- Use a preset or create your own
+- Shortcuts to various Windows Tools/Utilities
 
 ![Simple Windows 11 Setup](https://github.com/PaladinXV/SimpleWin11/blob/main/Screenshot/main-window.png)
 
 ## 🚀 How to use
 
 >[!WARNING]
->This tool has been heavily tested. If you find a bug, please report it! Use at your own risk! 
+>While all tweaks are safe and revertable, it's good practice to create a Restore Point before using such tools. Use this tool at your own risk!
 
-Copy the link below and paste it into PowerShell.
+1. Open PowerShell or Terminal
+
+2. Copy and paste the command below
 
 ```powershell
-irm https://raw.githubusercontent.com/PaladinXV/Simple-Windows-11-Setup-Debloat-Tool/main/Launch.ps1 | iex
+irm "https://raw.githubusercontent.com/PaladinXV/SimpleWin11/main/Launch.ps1" | iex
 ```
 
 ## 📝 Notes
 
 - Best to use on a fresh install of Windows 11
-- Recommended to create a System Restore point
-- Almost all changes can be reverted 
+- Creating a System Restore Point is recommended
+- Most changes can be reverted
+- Tested on Windows 11 25H2/26H2 Home/Pro. Other versions may have limited compatibility. 
 
 ## 📄 Documentation
 Read here - https://github.com/PaladinXV/SimpleWin11/wiki
