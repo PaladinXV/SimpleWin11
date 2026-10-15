@@ -32,7 +32,6 @@ $SwsBranch = 'main'
         Write-Host $v -ForegroundColor DarkGray
         Write-Host ("   " + $v + (' ' * $w) + $v) -ForegroundColor DarkGray
         Write-Host ("   " + $bl + ($h * $w) + $br) -ForegroundColor DarkGray
-        Write-Host ("   github.com/$SwsRepo") -ForegroundColor DarkGray
         Write-Host ""
     }
 
