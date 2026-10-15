@@ -6,7 +6,6 @@ $ShortcutGroups = [ordered]@{
         @{ Name = "Mouse Settings";             File = "control.exe";                  Args = "main.cpl" }
         @{ Name = "Network Options";            File = "control.exe";                  Args = "ncpa.cpl" }
         @{ Name = "Power Options";              File = "control.exe";                  Args = "powercfg.cpl" }
-        @{ Name = "Printer Options";            File = "ms-settings:printers";         Args = "" }
         @{ Name = "Restore Point";              File = "SystemPropertiesProtection.exe"; Args = "" }
         @{ Name = "Sound Settings";             File = "control.exe";                  Args = "mmsys.cpl" }
         @{ Name = "System Configuration (msconfig)"; File = "msconfig.exe";             Args = "" }
