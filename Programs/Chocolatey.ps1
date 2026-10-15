@@ -128,53 +128,53 @@ $ChocoApps = @(
     @{ Name = 'Brave';                      ChocoId = 'brave';                   Category = 'Browsers';      Recommended = $false; Description = 'Privacy-focused browser with a built-in ad and tracker blocker.' }
     @{ Name = 'Chrome';                     ChocoId = 'googlechrome';            Category = 'Browsers';      Recommended = $false; Description = "Google's web browser." }
     @{ Name = 'FireFox';                    ChocoId = 'firefox';                 Category = 'Browsers';      Recommended = $false; Description = "Mozilla's open-source web browser." }
-    @{ Name = 'FireFox ESR';                ChocoId = 'firefoxesr';              Category = 'Browsers';      Recommended = $false; Description = 'Firefox''s Extended Support Release: fewer, larger updates for stability.' }
-    @{ Name = 'Floorp';                     ChocoId = 'floorp';                  Category = 'Browsers';      Recommended = $false; Description = 'Privacy-focused, highly customisable browser based on Firefox.' }
-    @{ Name = 'Helium';                     ChocoId = 'helium';                  Category = 'Browsers';      Recommended = $false; Description = 'Lightweight, privacy-focused Chromium-based browser.' }
-    @{ Name = 'Librewolf';                  ChocoId = 'librewolf';               Category = 'Browsers';      Recommended = $false; Description = 'Firefox fork tuned for privacy and security out of the box.' }
-    @{ Name = 'Tor Browser';                ChocoId = 'tor-browser';             Category = 'Browsers';      Recommended = $false; Description = 'Browses through the Tor network to hide your location and activity.' }
-    @{ Name = 'Vivaldi';                    ChocoId = 'vivaldi';                 Category = 'Browsers';      Recommended = $false; Description = 'Highly customisable Chromium-based browser.' }
-    @{ Name = 'Waterfox';                   ChocoId = 'waterfox';                Category = 'Browsers';      Recommended = $false; Description = 'Privacy-focused browser based on Firefox.' }
-    @{ Name = 'Zen Browser';                ChocoId = 'zen-browser';             Category = 'Browsers';      Recommended = $false; Description = 'Firefox-based browser with a vertical-tab, workspace-style layout.' }
-    @{ Name = 'Discord';                    ChocoId = 'discord';                 Category = 'Communication'; Recommended = $false; Description = 'Voice, video and text chat for communities and friends.' }
+    @{ Name = 'FireFox ESR';                ChocoId = 'firefoxesr';              Category = 'Browsers';      Recommended = $false; Description = 'Firefox''s Extended Support Release. Long-term support for a single version.' }
+    @{ Name = 'Floorp';                     ChocoId = 'floorp';                  Category = 'Browsers';      Recommended = $false; Description = 'Open-source, Firefox-based browser focused on privacy, extensive customisation, and built-in productivity features.' }
+    @{ Name = 'Helium';                     ChocoId = 'helium';                  Category = 'Browsers';      Recommended = $false; Description = 'Fork of Ungoogled-Chromium with added features, including uBlock Origin' }
+    @{ Name = 'Librewolf';                  ChocoId = 'librewolf';               Category = 'Browsers';      Recommended = $false; Description = 'Firefox fork tuned for privacy out of the box.' }
+    @{ Name = 'Tor Browser';                ChocoId = 'tor-browser';             Category = 'Browsers';      Recommended = $false; Description = 'Privacy focused browser that utilizes the Tor Network' }
+    @{ Name = 'Vivaldi';                    ChocoId = 'vivaldi';                 Category = 'Browsers';      Recommended = $false; Description = 'Chromium-based browser that focuses on workflow and customization.' }
+    @{ Name = 'Waterfox';                   ChocoId = 'waterfox';                Category = 'Browsers';      Recommended = $false; Description = 'FireFox fork that has added functioality' }
+    @{ Name = 'Zen Browser';                ChocoId = 'zen-browser';             Category = 'Browsers';      Recommended = $false; Description = 'FireFox fork that that focuses on workflow and customization.' }
+    @{ Name = 'Discord';                    ChocoId = 'discord';                 Category = 'Communication'; Recommended = $false; Description = 'Free communication platform for text, voice, and video chats.' }
     @{ Name = 'Signal';                     ChocoId = 'signal';                  Category = 'Communication'; Recommended = $false; Description = 'End-to-end encrypted messaging and calls.' }
-    @{ Name = 'TeamSpeak';                  ChocoId = 'teamspeak';               Category = 'Communication'; Recommended = $false; Description = 'Low-latency voice chat, popular for gaming.'; Warning = 'Some regions or VPNs may be blocked from downloads.' }
+    @{ Name = 'TeamSpeak';                  ChocoId = 'teamspeak';               Category = 'Communication'; Recommended = $false; Description = 'Free communication platform for text and voice chat.'; Warning = 'Some regions or VPNs may be blocked from downloads.' }
     @{ Name = 'Telegram';                   ChocoId = 'telegram';                Category = 'Communication'; Recommended = $false; Description = 'Cloud-based messaging app with groups and channels.' }
     @{ Name = 'Adobe Acrobat Reader';       ChocoId = 'adobereader';             Category = 'Documents';     Recommended = $false; Description = 'Adobe''s free PDF viewer.' }
-    @{ Name = 'LibreOffice';                ChocoId = 'libreoffice-fresh';       Category = 'Documents';     Recommended = $false; Description = 'Free office suite: documents, spreadsheets and presentations.' }
-    @{ Name = 'Notepad++';                  ChocoId = 'notepadplusplus';         Category = 'Documents';     Recommended = $false; Description = 'Fast text and code editor with tabs and syntax highlighting.' }
-    @{ Name = 'OpenOffice';                 ChocoId = 'openoffice';              Category = 'Documents';     Recommended = $false; Description = 'Apache office suite. LibreOffice is the more actively developed option.' }
-    @{ Name = 'EA App';                     ChocoId = 'ea-app';                  Category = 'Gaming';        Recommended = $false; Description = "Electronic Arts' game launcher and store." }
-    @{ Name = 'Epic Games Launcher';        ChocoId = 'epicgameslauncher';       Category = 'Gaming';        Recommended = $false; Description = 'Epic Games store and launcher.' }
+    @{ Name = 'LibreOffice';                ChocoId = 'libreoffice-fresh';       Category = 'Documents';     Recommended = $false; Description = 'Free and open-source Office Suite.' }
+    @{ Name = 'Notepad++';                  ChocoId = 'notepadplusplus';         Category = 'Documents';     Recommended = $false; Description = 'Free, open-source text and source code editor offering syntax highlighting, tabbed editing, and support for multiple programming languages.' }
+    @{ Name = 'OpenOffice';                 ChocoId = 'openoffice';              Category = 'Documents';     Recommended = $false; Description = 'Free and open-source Office Suite.' }
+    @{ Name = 'EA App';                     ChocoId = 'ea-app';                  Category = 'Gaming';        Recommended = $false; Description = "Electronic Arts' game launcher." }
+    @{ Name = 'Epic Games Launcher';        ChocoId = 'epicgameslauncher';       Category = 'Gaming';        Recommended = $false; Description = 'Epic Games game launcher.' }
     @{ Name = 'GOG Launcher';               ChocoId = 'goggalaxy';               Category = 'Gaming';        Recommended = $false; Description = 'GOG store and multi-platform game library launcher.' }
-    @{ Name = 'Steam';                      ChocoId = 'steam';                   Category = 'Gaming';        Recommended = $false; Description = "Valve's game store and launcher." }
+    @{ Name = 'Steam';                      ChocoId = 'steam';                   Category = 'Gaming';        Recommended = $false; Description = "Valve's game launcher." }
     @{ Name = 'Ubisoft Connect';            ChocoId = 'ubisoft-connect';         Category = 'Gaming';        Recommended = $false; Description = 'Ubisoft''s game launcher.' }
-    @{ Name = 'Audacity';                   ChocoId = 'audacity';                Category = 'Multimedia';    Recommended = $false; Description = 'Free audio recorder and editor.' }
+    @{ Name = 'Audacity';                   ChocoId = 'audacity';                Category = 'Multimedia';    Recommended = $false; Description = 'free, open-source audio editor and recorder that lets you record, edit, mix, and process audio using a range of built-in tools and effects.' }
     @{ Name = 'Foobar2000';                 ChocoId = 'foobar2000';              Category = 'Multimedia';    Recommended = $false; Description = 'Lightweight, highly configurable audio player.' }
     @{ Name = 'Handbrake';                  ChocoId = 'handbrake';               Category = 'Multimedia';    Recommended = $false; Description = 'Open-source video converter and transcoder.' }
     @{ Name = 'IrfanView';                  ChocoId = 'irfanview';               Category = 'Multimedia';    Recommended = $false; Description = 'Fast, lightweight image viewer and basic editor.' }
     @{ Name = 'iTunes';                     ChocoId = 'itunes';                  Category = 'Multimedia';    Recommended = $false; Description = "Apple's media player and device manager." }
-    @{ Name = 'K-Lite Codec Standard';      ChocoId = 'k-litecodecpackstandard'; Category = 'Multimedia';    Recommended = $false; Description = 'Audio and video codecs plus Media Player Classic.' }
-    @{ Name = 'OBS Studio';                  ChocoId = 'obs-studio';              Category = 'Utilities';     Recommended = $false; Description = 'Free screen recording and live streaming.' }
-    @{ Name = 'ShareX';                     ChocoId = 'sharex';                  Category = 'Multimedia';    Recommended = $false; Description = 'Screenshot and screen recording tool with editing and upload options.' }
-    @{ Name = 'VLC Media Player';           ChocoId = 'vlc';                     Category = 'Multimedia';    Recommended = $false; Description = 'Plays almost any audio or video format.' }
-    @{ Name = '7Zip';                       ChocoId = '7zip';                    Category = 'Utilities';     Recommended = $false; Description = 'Open-source file archiver.' }
+    @{ Name = 'K-Lite Codec Standard';      ChocoId = 'k-litecodecpackstandard'; Category = 'Multimedia';    Recommended = $false; Description = 'Audio and Video player.' }
+    @{ Name = 'OBS Studio';                  ChocoId = 'obs-studio';              Category = 'Utilities';     Recommended = $false; Description = 'Open-Source Screen recorder + Streaming software' }
+    @{ Name = 'ShareX';                     ChocoId = 'sharex';                  Category = 'Multimedia';    Recommended = $false; Description = 'Screenshot and basic screen recording tool' }
+    @{ Name = 'VLC Media Player';           ChocoId = 'vlc';                     Category = 'Multimedia';    Recommended = $false; Description = 'Video and Audio player' }
+    @{ Name = '7Zip';                       ChocoId = '7zip';                    Category = 'Utilities';     Recommended = $false; Description = 'Open-source file extraction and archive tool.' }
     @{ Name = 'AutoHotkey';                 ChocoId = 'autohotkey';              Category = 'Utilities';     Recommended = $false; Description = 'Scripting tool for custom hotkeys and automating tasks.' }
-    @{ Name = 'Bitwarden';                  ChocoId = 'bitwarden';               Category = 'Utilities';     Recommended = $false; Description = 'Open-source password manager.' }
+    @{ Name = 'Bitwarden';                  ChocoId = 'bitwarden';               Category = 'Utilities';     Recommended = $false; Description = 'Password manager.' }
     @{ Name = 'CPU-Z';                      ChocoId = 'cpu-z';                   Category = 'Utilities';     Recommended = $false; Description = 'Shows detailed CPU, motherboard and memory information.' }
     @{ Name = 'Crystal Disk Info';          ChocoId = 'crystaldiskinfo';         Category = 'Utilities';     Recommended = $false; Description = 'Drive health and SMART status monitor.' }
-    @{ Name = 'Crystal Disk Mark';          ChocoId = 'crystaldiskmark';         Category = 'Utilities';     Recommended = $false; Description = 'Drive read/write speed benchmark.' }
-    @{ Name = 'Display Driver Uninstaller'; ChocoId = 'ddu';                     Category = 'Utilities';     Recommended = $false; Description = 'Fully removes graphics drivers, for clean reinstalls.' }
+    @{ Name = 'Crystal Disk Mark';          ChocoId = 'crystaldiskmark';         Category = 'Utilities';     Recommended = $false; Description = 'Drive benchmarking tool.' }
+    @{ Name = 'Display Driver Uninstaller'; ChocoId = 'ddu';                     Category = 'Utilities';     Recommended = $false; Description = 'Extensive GPU driver uninstalltion tool.' }
     @{ Name = 'Dropbox';                    ChocoId = 'dropbox';                 Category = 'Utilities';     Recommended = $false; Description = 'Cloud storage and file sync.' }
-    @{ Name = 'Everything';                 ChocoId = 'everything';              Category = 'Utilities';     Recommended = $false; Description = 'Finds files and folders by name instantly.' }
+    @{ Name = 'Everything';                 ChocoId = 'everything';              Category = 'Utilities';     Recommended = $false; Description = 'Simple but extensive file search tool.' }
     @{ Name = 'GPU-Z';                      ChocoId = 'gpu-z';                   Category = 'Utilities';     Recommended = $false; Description = 'Shows detailed graphics card information.' }
     @{ Name = 'HWInfo';                     ChocoId = 'hwinfo';                  Category = 'Utilities';     Recommended = $false; Description = 'In-depth hardware information and sensor monitoring.' }
-    @{ Name = 'HWMonitor';                  ChocoId = 'hwmonitor';               Category = 'Utilities';     Recommended = $false; Description = 'Monitors temperatures, voltages and fan speeds.' }
-    @{ Name = 'MSI Afterburner';            ChocoId = 'msiafterburner';          Category = 'Utilities';     Recommended = $false; Description = 'Graphics card overclocking and monitoring.' }
-    @{ Name = 'Nanazip';                    ChocoId = 'nanazip';                 Category = 'Utilities';     Recommended = $false; Description = '7-Zip fork that integrates with the Windows 11 context menu.' }
-    @{ Name = 'PowerToys';                  ChocoId = 'powertoys';               Category = 'Utilities';     Recommended = $false; Description = 'Microsoft''s collection of extra Windows tools (FancyZones, PowerRename, Color Picker and more).' }
-    @{ Name = 'Process Lasso';              ChocoId = 'plasso';                  Category = 'Utilities';     Recommended = $false; Description = 'Automated process priority and CPU affinity management.' }
-    @{ Name = 'qBitTorrent';                ChocoId = 'qbittorrent';             Category = 'Utilities';     Recommended = $false; Description = 'Open-source BitTorrent client.' }
-    @{ Name = 'Mullvad VPN';                ChocoId = 'mullvad-app';             Category = 'VPN';           Recommended = $false; Description = 'Privacy-focused VPN that needs no email or personal details to sign up.' }
-    @{ Name = 'Proton VPN';                 ChocoId = 'protonvpn';               Category = 'VPN';           Recommended = $false; Description = 'VPN from the makers of Proton Mail, with a free tier.' }
+    @{ Name = 'HWMonitor';                  ChocoId = 'hwmonitor';               Category = 'Utilities';     Recommended = $false; Description = 'In-depth hardware/sensor monitoring software' }
+    @{ Name = 'MSI Afterburner';            ChocoId = 'msiafterburner';          Category = 'Utilities';     Recommended = $false; Description = 'Graphics card control + extensive system/sensor overlay for gaming.' }
+    @{ Name = 'Nanazip';                    ChocoId = 'nanazip';                 Category = 'Utilities';     Recommended = $false; Description = '7-Zip fork.' }
+    @{ Name = 'PowerToys';                  ChocoId = 'powertoys';               Category = 'Utilities';     Recommended = $false; Description = 'Microsoft''s collection of extra Windows tools.' }
+    @{ Name = 'Process Lasso';              ChocoId = 'plasso';                  Category = 'Utilities';     Recommended = $false; Description = 'System tweaking tool such as setting core affinities, automated Power Plans etc.' }
+    @{ Name = 'qBitTorrent';                ChocoId = 'qbittorrent';             Category = 'Utilities';     Recommended = $false; Description = 'Open-source Torrent client.' }
+    @{ Name = 'Mullvad VPN';                ChocoId = 'mullvad-app';             Category = 'VPN';           Recommended = $false; Description = 'Mullvad VPN.' }
+    @{ Name = 'Proton VPN';                 ChocoId = 'protonvpn';               Category = 'VPN';           Recommended = $false; Description = 'Proton VPN. Has a free-tier.' }
 )
