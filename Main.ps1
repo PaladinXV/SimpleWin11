@@ -1005,7 +1005,9 @@ foreach ($link in @(@("InfoGoApps", "Apps"), @("InfoGoConfig", "Config"), @("Inf
 $window.FindName("BtnExportConfig").Add_Click({ Export-UserConfig })
 $window.FindName("BtnImportConfig").Add_Click({ Import-UserConfig })
 $window.FindName("BtnApplyConfig").Add_Click({
-    if (-not (Show-ConfirmDialog -Question "Are you sure you want to apply your selections?" -Detail "This applies every selection on every page at once: Windows Apps, Configuration and User Apps.")) { return }
+    $hasUserApps = @($AllCheckboxes | Where-Object { $ControlScope[$_] -in @("ProgramsWinget", "ProgramsChoco") -and $_.IsChecked }).Count -gt 0
+    $appliesTo = if ($hasUserApps) { "Windows Apps, Configuration and User Apps" } else { "Windows Apps and Configuration" }
+    if (-not (Show-ConfirmDialog -Question "Are you sure you want to apply your selections?" -Detail "This applies every selection on every page at once: $appliesTo.")) { return }
     $script:ApplyAllScopes = $true
     try { & $ApplyAction } finally { $script:ApplyAllScopes = $false }
 })

@@ -25,7 +25,7 @@ $ShortcutGroups = [ordered]@{
         @{ Name = "Sign Out"; Confirm = "Are you sure you want to sign out?"; Action = { Invoke-PowerCommand -Arguments "/l" } }
         @{ Name = "Reboot to Advanced Startup"; Confirm = "Are you sure you want to restart into `"Advanced Startup`"?"; ConfirmDetail = "Advanced Startup is useful for troubleshooting."; Action = { Invoke-PowerCommand -Arguments "/r /o /t 0" } }
         @{ Name = "Reboot to UEFI"; Confirm = "Are you sure you want to restart into the UEFI (BIOS) settings?"; Action = { Invoke-PowerCommand -Arguments "/r /fw /t 0" -FailMessage "This PC couldn't restart into UEFI. It may use a legacy BIOS, or its firmware doesn't support this." } }
-        @{ Name = "Reboot to Safe Mode"; Confirm = "Are you sure you want to restart into Safe Mode?"; ConfirmDetail = "The PC restarts to the Advanced Boot Options menu - choose Safe Mode there. This only happens once: restarting from Safe Mode boots Windows normally."; Action = { Restart-ToSafeModeOnce } }
+        @{ Name = "Reboot to Safe Mode"; Confirm = "Are you sure you want to restart into Safe Mode?"; ConfirmDetail = "The PC will restart to the Advanced Boot Options menu - Select Safe Mode there. Once finished, restart the PC and it will boot normally."; Action = { Restart-ToSafeModeOnce } }
     )
 }
 
